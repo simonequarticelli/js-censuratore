@@ -3,6 +3,9 @@
 // - Stampa un “badword index” calcolato come il numero di parole censurate
 //  su il numero di parole totali
 
+
+//le RegEx sono espressioni che filtrano determinate cose sulle stringhe
+
 //creo input utente
 var testo = prompt('inserisci un testo');
 
@@ -24,15 +27,15 @@ function censored_words(prompt_testo, array_parole_vietate){
   console.log(prompt_testo.join(' '));
 
   var find = false;
-  var i = 0;
-  while (i <= prompt_testo.length) {
+
+  for (var i = 0; i <= prompt_testo.length; i++) {
     if (array_parole_vietate.includes(prompt_testo[i])) {
       find = true;
       word_user.push(prompt_testo[i]);
       prompt_testo[i] = 'xxx';
-      contatore = contatore + 1;
+      contatore = contatore + 1; //<-- contatore ++;
     }
-    i++;
+
   }
   document.getElementById('testo').innerHTML=(prompt_testo.join(' ') + "<br>");
   console.log('hai inserito ' + contatore + ' parole vietate su ' + prompt_testo.length);
